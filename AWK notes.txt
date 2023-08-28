@@ -1,3 +1,6 @@
+# A practical guide to learning gnu awk
+# run the code below in an interactive Bash prompt
+
 # AWK syntax
 awk [options] 'pattern {action}' inputfile
 
@@ -21,3 +24,12 @@ awk '/raspberry/ { print $0 }' colours.txt
 
 # print a row if it contains grape or plum
 awk '/grape|plum/ { print $0 }' data/colours.txt
+
+# print the number of fields in each row of a document
+awk '{print $0 " {" NF "}" }' colours.txt
+
+# print the now numbers for each row of a document
+awk '{print NR ". " $0 }' colours.txt
+
+# use printf
+awk '{printf "%s (%d)\n", $0,NF}' colours.txt 
